@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73f644445e7b4cc88c2c747923f36920" Name="Diagram1">
+        <EntityTypeShape EntityType="AppDataModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.Game" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.GameState" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.Match" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.MatchDetail" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.MatchRequest" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.PlayerRequest" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.PlayerStat" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.Role" Width="1.5" PointX="3.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.RoleRight" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.Team" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.TeamPlayer" Width="1.5" PointX="9" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.User" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDataModel.UserProfile" Width="1.5" PointX="10.5" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="AppDataModel.FK_Game_User_PlayerId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_GameStates_Match_MatchId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_Match_Team_Team1Id" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_Match_Team_Team2Id" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_MatchDetails_Match_MatchId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_PlayerStats_Match_MatchId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_MatchDetails_Team_WinningTeamId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_MatchRequest_Team_ReceiverTeamId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_MatchRequest_Team_SenderTeamId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_PlayerRequest_Team_TeamId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_PlayerRequest_User_PlayerId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_PlayerStats_User_PlayerId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_UserProfile_PlayerStats_PlayerStatsId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_RoleRight_Role_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_User_Role_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_TeamPlayers_Team_TeamId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_UserProfile_Team_TeamId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_TeamPlayers_User_PlayerId" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDataModel.FK_UserProfile_User_UserId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

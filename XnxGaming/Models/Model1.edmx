@@ -1,0 +1,1479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AppDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="PlayerId" Type="nvarchar" MaxLength="450" />
+          <Property Name="GameType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GameStates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+          <Property Name="GameStateJSON" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="Team1Id" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Contact1" Type="nvarchar(max)" />
+          <Property Name="Contact2" Type="nvarchar(max)" />
+          <Property Name="Team2Id" Type="int" />
+          <Property Name="IsStart" Type="bit" />
+          <Property Name="IsFinished" Type="bit" />
+          <Property Name="ApprovalCounter" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MatchDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+          <Property Name="Score" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="WinningTeamId" Type="int" />
+        </EntityType>
+        <EntityType Name="MatchRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="SenderTeamId" Type="int" />
+          <Property Name="IsAccepted" Type="bit" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Longitude" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Contact1" Type="nvarchar(max)" />
+          <Property Name="Contact2" Type="nvarchar(max)" />
+          <Property Name="ReceiverTeamId" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="MatchTimings" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="MatchType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="PlayerId" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="PlayerStats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="PlayerId" Type="nvarchar" MaxLength="450" />
+          <Property Name="MatchId" Type="int" Nullable="false" />
+          <Property Name="Kills" Type="int" Nullable="false" />
+          <Property Name="Deths" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="RoleName" Type="nvarchar(max)" />
+          <Property Name="RoleType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleRight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="ControllerId" Type="nvarchar(max)" />
+          <Property Name="ControllerRightId" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="TeamName" Type="nvarchar(max)" />
+          <Property Name="TeamImage" Type="nvarchar(max)" />
+          <Property Name="TeamType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamPlayers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="TeamId" Type="int" Nullable="false" />
+          <Property Name="PlayerId" Type="nvarchar" MaxLength="450" />
+          <Property Name="IsCaptain" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="SteamId" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="token" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenantId" Type="int" />
+          <Property Name="CompanyId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime2" Precision="7" />
+          <Property Name="EditUserId" Type="nvarchar(max)" />
+          <Property Name="EditTime" Type="datetime2" Precision="7" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="450" />
+          <Property Name="TeamId" Type="int" />
+          <Property Name="PlayerStatsId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Game_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Game" Type="Self.Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameStates_Match_MatchId">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="GameStates" Type="Self.GameStates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameStates">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Team_Team1Id">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Team_Team2Id">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchDetails_Match_MatchId">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="MatchDetails" Type="Self.MatchDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchDetails">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchDetails_Team_WinningTeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="MatchDetails" Type="Self.MatchDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchDetails">
+              <PropertyRef Name="WinningTeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchRequest_Team_ReceiverTeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="MatchRequest" Type="Self.MatchRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchRequest">
+              <PropertyRef Name="ReceiverTeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchRequest_Team_SenderTeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="MatchRequest" Type="Self.MatchRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchRequest">
+              <PropertyRef Name="SenderTeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRequest_Team_TeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlayerRequest" Type="Self.PlayerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerRequest">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRequest_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PlayerRequest" Type="Self.PlayerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerRequest">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerStats_Match_MatchId">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="PlayerStats" Type="Self.PlayerStats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerStats">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerStats_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PlayerStats" Type="Self.PlayerStats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerStats">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleRight_Role_RoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleRight" Type="Self.RoleRight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleRight">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlayers_Team_TeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="TeamPlayers" Type="Self.TeamPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayers">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlayers_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TeamPlayers" Type="Self.TeamPlayers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayers">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role_RoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_PlayerStats_PlayerStatsId">
+          <End Role="PlayerStats" Type="Self.PlayerStats" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayerStats">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="PlayerStatsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Team_TeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AppDataModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameStates" EntityType="Self.GameStates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchDetails" EntityType="Self.MatchDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchRequest" EntityType="Self.MatchRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerRequest" EntityType="Self.PlayerRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerStats" EntityType="Self.PlayerStats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleRight" EntityType="Self.RoleRight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeamPlayers" EntityType="Self.TeamPlayers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Game_User_PlayerId" Association="Self.FK_Game_User_PlayerId">
+            <End Role="User" EntitySet="User" />
+            <End Role="Game" EntitySet="Game" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameStates_Match_MatchId" Association="Self.FK_GameStates_Match_MatchId">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="GameStates" EntitySet="GameStates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Team_Team1Id" Association="Self.FK_Match_Team_Team1Id">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Team_Team2Id" Association="Self.FK_Match_Team_Team2Id">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchDetails_Match_MatchId" Association="Self.FK_MatchDetails_Match_MatchId">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="MatchDetails" EntitySet="MatchDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchDetails_Team_WinningTeamId" Association="Self.FK_MatchDetails_Team_WinningTeamId">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="MatchDetails" EntitySet="MatchDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchRequest_Team_ReceiverTeamId" Association="Self.FK_MatchRequest_Team_ReceiverTeamId">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="MatchRequest" EntitySet="MatchRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchRequest_Team_SenderTeamId" Association="Self.FK_MatchRequest_Team_SenderTeamId">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="MatchRequest" EntitySet="MatchRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRequest_Team_TeamId" Association="Self.FK_PlayerRequest_Team_TeamId">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="PlayerRequest" EntitySet="PlayerRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRequest_User_PlayerId" Association="Self.FK_PlayerRequest_User_PlayerId">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerRequest" EntitySet="PlayerRequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerStats_Match_MatchId" Association="Self.FK_PlayerStats_Match_MatchId">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="PlayerStats" EntitySet="PlayerStats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerStats_User_PlayerId" Association="Self.FK_PlayerStats_User_PlayerId">
+            <End Role="User" EntitySet="User" />
+            <End Role="PlayerStats" EntitySet="PlayerStats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleRight_Role_RoleId" Association="Self.FK_RoleRight_Role_RoleId">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleRight" EntitySet="RoleRight" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlayers_Team_TeamId" Association="Self.FK_TeamPlayers_Team_TeamId">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamPlayers" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlayers_User_PlayerId" Association="Self.FK_TeamPlayers_User_PlayerId">
+            <End Role="User" EntitySet="User" />
+            <End Role="TeamPlayers" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role_RoleId" Association="Self.FK_User_Role_RoleId">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_PlayerStats_PlayerStatsId" Association="Self.FK_UserProfile_PlayerStats_PlayerStatsId">
+            <End Role="PlayerStats" EntitySet="PlayerStats" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Team_TeamId" Association="Self.FK_UserProfile_Team_TeamId">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_User_UserId" Association="Self.FK_UserProfile_User_UserId">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AppDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="PlayerId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="GameType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Game_User_PlayerId" FromRole="Game" ToRole="User" />
+        </EntityType>
+        <EntityType Name="GameState">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <Property Name="GameStateJSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_GameStates_Match_MatchId" FromRole="GameStates" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Team1Id" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Contact1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Team2Id" Type="Int32" />
+          <Property Name="IsStart" Type="Boolean" />
+          <Property Name="IsFinished" Type="Boolean" />
+          <Property Name="ApprovalCounter" Type="Int32" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GameStates" Relationship="Self.FK_GameStates_Match_MatchId" FromRole="Match" ToRole="GameStates" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Match_Team_Team1Id" FromRole="Match" ToRole="Team" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK_Match_Team_Team2Id" FromRole="Match" ToRole="Team" />
+          <NavigationProperty Name="MatchDetails" Relationship="Self.FK_MatchDetails_Match_MatchId" FromRole="Match" ToRole="MatchDetails" />
+          <NavigationProperty Name="PlayerStats" Relationship="Self.FK_PlayerStats_Match_MatchId" FromRole="Match" ToRole="PlayerStats" />
+        </EntityType>
+        <EntityType Name="MatchDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="WinningTeamId" Type="Int32" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_MatchDetails_Match_MatchId" FromRole="MatchDetails" ToRole="Match" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_MatchDetails_Team_WinningTeamId" FromRole="MatchDetails" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="MatchRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="SenderTeamId" Type="Int32" />
+          <Property Name="IsAccepted" Type="Boolean" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Longitude" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Contact1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiverTeamId" Type="Int32" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="MatchTimings" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="MatchType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_MatchRequest_Team_ReceiverTeamId" FromRole="MatchRequest" ToRole="Team" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK_MatchRequest_Team_SenderTeamId" FromRole="MatchRequest" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="PlayerRequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <Property Name="PlayerId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_PlayerRequest_Team_TeamId" FromRole="PlayerRequest" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="Self.FK_PlayerRequest_User_PlayerId" FromRole="PlayerRequest" ToRole="User" />
+        </EntityType>
+        <EntityType Name="PlayerStat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="PlayerId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="MatchId" Type="Int32" Nullable="false" />
+          <Property Name="Kills" Type="Int32" Nullable="false" />
+          <Property Name="Deths" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_PlayerStats_Match_MatchId" FromRole="PlayerStats" ToRole="Match" />
+          <NavigationProperty Name="User" Relationship="Self.FK_PlayerStats_User_PlayerId" FromRole="PlayerStats" ToRole="User" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.FK_UserProfile_PlayerStats_PlayerStatsId" FromRole="PlayerStats" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RoleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RoleRights" Relationship="Self.FK_RoleRight_Role_RoleId" FromRole="Role" ToRole="RoleRight" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role_RoleId" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="RoleRight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="ControllerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ControllerRightId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_RoleRight_Role_RoleId" FromRole="RoleRight" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TeamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeamImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeamType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Matches" Relationship="Self.FK_Match_Team_Team1Id" FromRole="Team" ToRole="Match" />
+          <NavigationProperty Name="Matches1" Relationship="Self.FK_Match_Team_Team2Id" FromRole="Team" ToRole="Match" />
+          <NavigationProperty Name="MatchDetails" Relationship="Self.FK_MatchDetails_Team_WinningTeamId" FromRole="Team" ToRole="MatchDetails" />
+          <NavigationProperty Name="MatchRequests" Relationship="Self.FK_MatchRequest_Team_ReceiverTeamId" FromRole="Team" ToRole="MatchRequest" />
+          <NavigationProperty Name="MatchRequests1" Relationship="Self.FK_MatchRequest_Team_SenderTeamId" FromRole="Team" ToRole="MatchRequest" />
+          <NavigationProperty Name="PlayerRequests" Relationship="Self.FK_PlayerRequest_Team_TeamId" FromRole="Team" ToRole="PlayerRequest" />
+          <NavigationProperty Name="TeamPlayers" Relationship="Self.FK_TeamPlayers_Team_TeamId" FromRole="Team" ToRole="TeamPlayers" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.FK_UserProfile_Team_TeamId" FromRole="Team" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="TeamPlayer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TeamId" Type="Int32" Nullable="false" />
+          <Property Name="PlayerId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="IsCaptain" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_TeamPlayers_Team_TeamId" FromRole="TeamPlayers" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="Self.FK_TeamPlayers_User_PlayerId" FromRole="TeamPlayers" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SteamId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="token" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Games" Relationship="Self.FK_Game_User_PlayerId" FromRole="User" ToRole="Game" />
+          <NavigationProperty Name="PlayerRequests" Relationship="Self.FK_PlayerRequest_User_PlayerId" FromRole="User" ToRole="PlayerRequest" />
+          <NavigationProperty Name="PlayerStats" Relationship="Self.FK_PlayerStats_User_PlayerId" FromRole="User" ToRole="PlayerStats" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role_RoleId" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="TeamPlayers" Relationship="Self.FK_TeamPlayers_User_PlayerId" FromRole="User" ToRole="TeamPlayers" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.FK_UserProfile_User_UserId" FromRole="User" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenantId" Type="Int32" />
+          <Property Name="CompanyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Precision="7" />
+          <Property Name="EditUserId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EditTime" Type="DateTime" Precision="7" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Timestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="UserId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="TeamId" Type="Int32" />
+          <Property Name="PlayerStatsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PlayerStat" Relationship="Self.FK_UserProfile_PlayerStats_PlayerStatsId" FromRole="UserProfile" ToRole="PlayerStats" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_UserProfile_Team_TeamId" FromRole="UserProfile" ToRole="Team" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserProfile_User_UserId" FromRole="UserProfile" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Game_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Game" Type="Self.Game" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Game">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameStates_Match_MatchId">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="GameStates" Type="Self.GameState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameStates">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Team_Team1Id">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Team_Team2Id">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchDetails_Match_MatchId">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="MatchDetails" Type="Self.MatchDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchDetails">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerStats_Match_MatchId">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="PlayerStats" Type="Self.PlayerStat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerStats">
+              <PropertyRef Name="MatchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchDetails_Team_WinningTeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="MatchDetails" Type="Self.MatchDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchDetails">
+              <PropertyRef Name="WinningTeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchRequest_Team_ReceiverTeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="MatchRequest" Type="Self.MatchRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchRequest">
+              <PropertyRef Name="ReceiverTeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MatchRequest_Team_SenderTeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="MatchRequest" Type="Self.MatchRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MatchRequest">
+              <PropertyRef Name="SenderTeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRequest_Team_TeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlayerRequest" Type="Self.PlayerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerRequest">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerRequest_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PlayerRequest" Type="Self.PlayerRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerRequest">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlayerStats_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="PlayerStats" Type="Self.PlayerStat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerStats">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_PlayerStats_PlayerStatsId">
+          <End Role="PlayerStats" Type="Self.PlayerStat" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayerStats">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="PlayerStatsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleRight_Role_RoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleRight" Type="Self.RoleRight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleRight">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role_RoleId">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlayers_Team_TeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="TeamPlayers" Type="Self.TeamPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayers">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Team_TeamId">
+          <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="TeamId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamPlayers_User_PlayerId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TeamPlayers" Type="Self.TeamPlayer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeamPlayers">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_User_UserId">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="XnxGamingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="GameStates" EntityType="Self.GameState" />
+          <EntitySet Name="Matches" EntityType="Self.Match" />
+          <EntitySet Name="MatchDetails" EntityType="Self.MatchDetail" />
+          <EntitySet Name="MatchRequests" EntityType="Self.MatchRequest" />
+          <EntitySet Name="PlayerRequests" EntityType="Self.PlayerRequest" />
+          <EntitySet Name="PlayerStats" EntityType="Self.PlayerStat" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RoleRights" EntityType="Self.RoleRight" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="TeamPlayers" EntityType="Self.TeamPlayer" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <AssociationSet Name="FK_Game_User_PlayerId" Association="Self.FK_Game_User_PlayerId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Game" EntitySet="Games" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameStates_Match_MatchId" Association="Self.FK_GameStates_Match_MatchId">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="GameStates" EntitySet="GameStates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Team_Team1Id" Association="Self.FK_Match_Team_Team1Id">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Team_Team2Id" Association="Self.FK_Match_Team_Team2Id">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Match" EntitySet="Matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchDetails_Match_MatchId" Association="Self.FK_MatchDetails_Match_MatchId">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="MatchDetails" EntitySet="MatchDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerStats_Match_MatchId" Association="Self.FK_PlayerStats_Match_MatchId">
+            <End Role="Match" EntitySet="Matches" />
+            <End Role="PlayerStats" EntitySet="PlayerStats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchDetails_Team_WinningTeamId" Association="Self.FK_MatchDetails_Team_WinningTeamId">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="MatchDetails" EntitySet="MatchDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchRequest_Team_ReceiverTeamId" Association="Self.FK_MatchRequest_Team_ReceiverTeamId">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="MatchRequest" EntitySet="MatchRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MatchRequest_Team_SenderTeamId" Association="Self.FK_MatchRequest_Team_SenderTeamId">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="MatchRequest" EntitySet="MatchRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRequest_Team_TeamId" Association="Self.FK_PlayerRequest_Team_TeamId">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="PlayerRequest" EntitySet="PlayerRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerRequest_User_PlayerId" Association="Self.FK_PlayerRequest_User_PlayerId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="PlayerRequest" EntitySet="PlayerRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlayerStats_User_PlayerId" Association="Self.FK_PlayerStats_User_PlayerId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="PlayerStats" EntitySet="PlayerStats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_PlayerStats_PlayerStatsId" Association="Self.FK_UserProfile_PlayerStats_PlayerStatsId">
+            <End Role="PlayerStats" EntitySet="PlayerStats" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleRight_Role_RoleId" Association="Self.FK_RoleRight_Role_RoleId">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleRight" EntitySet="RoleRights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role_RoleId" Association="Self.FK_User_Role_RoleId">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlayers_Team_TeamId" Association="Self.FK_TeamPlayers_Team_TeamId">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="TeamPlayers" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Team_TeamId" Association="Self.FK_UserProfile_Team_TeamId">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamPlayers_User_PlayerId" Association="Self.FK_TeamPlayers_User_PlayerId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="TeamPlayers" EntitySet="TeamPlayers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_User_UserId" Association="Self.FK_UserProfile_User_UserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AppDataModelStoreContainer" CdmEntityContainer="XnxGamingEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="AppDataModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="AppDataModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="GameType" ColumnName="GameType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameStates">
+            <EntityTypeMapping TypeName="AppDataModel.GameState">
+              <MappingFragment StoreEntitySet="GameStates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+                <ScalarProperty Name="GameStateJSON" ColumnName="GameStateJSON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Matches">
+            <EntityTypeMapping TypeName="AppDataModel.Match">
+              <MappingFragment StoreEntitySet="Match">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Team1Id" ColumnName="Team1Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Team2Id" ColumnName="Team2Id" />
+                <ScalarProperty Name="IsStart" ColumnName="IsStart" />
+                <ScalarProperty Name="IsFinished" ColumnName="IsFinished" />
+                <ScalarProperty Name="ApprovalCounter" ColumnName="ApprovalCounter" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchDetails">
+            <EntityTypeMapping TypeName="AppDataModel.MatchDetail">
+              <MappingFragment StoreEntitySet="MatchDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="WinningTeamId" ColumnName="WinningTeamId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MatchRequests">
+            <EntityTypeMapping TypeName="AppDataModel.MatchRequest">
+              <MappingFragment StoreEntitySet="MatchRequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="SenderTeamId" ColumnName="SenderTeamId" />
+                <ScalarProperty Name="IsAccepted" ColumnName="IsAccepted" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Contact1" ColumnName="Contact1" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="ReceiverTeamId" ColumnName="ReceiverTeamId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MatchTimings" ColumnName="MatchTimings" />
+                <ScalarProperty Name="MatchType" ColumnName="MatchType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerRequests">
+            <EntityTypeMapping TypeName="AppDataModel.PlayerRequest">
+              <MappingFragment StoreEntitySet="PlayerRequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlayerStats">
+            <EntityTypeMapping TypeName="AppDataModel.PlayerStat">
+              <MappingFragment StoreEntitySet="PlayerStats">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="MatchId" ColumnName="MatchId" />
+                <ScalarProperty Name="Kills" ColumnName="Kills" />
+                <ScalarProperty Name="Deths" ColumnName="Deths" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="AppDataModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleRights">
+            <EntityTypeMapping TypeName="AppDataModel.RoleRight">
+              <MappingFragment StoreEntitySet="RoleRight">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+                <ScalarProperty Name="ControllerRightId" ColumnName="ControllerRightId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="AppDataModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="TeamImage" ColumnName="TeamImage" />
+                <ScalarProperty Name="TeamType" ColumnName="TeamType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamPlayers">
+            <EntityTypeMapping TypeName="AppDataModel.TeamPlayer">
+              <MappingFragment StoreEntitySet="TeamPlayers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+                <ScalarProperty Name="IsCaptain" ColumnName="IsCaptain" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AppDataModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="SteamId" ColumnName="SteamId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="AppDataModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="PlayerStatsId" ColumnName="PlayerStatsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
